@@ -28,7 +28,13 @@ namespace exercise.main
             return _items.Count;
         }
         public double Total => _items.Sum(i => i.price);
-        public int MaxCapacity { get; set; } = 5;    
-    
+        public int MaxCapacity { get; set; } = 5;
+
+        public int ChangeMaxCapacity(int MaxCapacity) {
+
+            MaxCapacity = 8;
+            return MaxCapacity;
+
+        }
     }
 }

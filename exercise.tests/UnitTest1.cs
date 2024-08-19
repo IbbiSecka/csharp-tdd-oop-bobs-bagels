@@ -50,14 +50,24 @@ public class Tests
     }
     [Test]
 
-    public void maxCapacity()
+    public void ChangeCapacityTest()
     {
         Basket bagelist = new Basket();
+        Item item111 = new Item("NaBagel", 72, "AMU", "Spicy");
+        Item item3 = new Item("Naaaagel", 12, "HMU", "LilSpice");
+        Item item4 = new Item("BaBagel", 2, "RMU", "MaybeSpicy");
+        bagelist.AddItem(item4);
+        bagelist.AddItem(item3);
+        bagelist.AddItem(item111);
+        int originalCapacity = bagelist.CheckCapacity(); // = 3
+        Assert.That(originalCapacity == 3);
+        
+        int changedCapacity = bagelist.ChangeMaxCapacity(originalCapacity);
 
 
+        Assert.That(changedCapacity == 8);
     }
 
-    [Test]
-    public 
+    
 
 }
