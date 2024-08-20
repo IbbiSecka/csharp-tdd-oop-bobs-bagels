@@ -30,8 +30,8 @@ public class Tests
         bool addedItem = bagel.AddItem(item99);
         Assert.That(addedItem);
         //Checks if item is removed
-        bool removedItem = bagel.RemoveItem(item99);
-        Assert.That(removedItem);
+        string removedItem = bagel.RemoveItem(item99);
+        Assert.That(removedItem == "Item reomved");
     }
     [Test]
     public void checkCapacity()
@@ -67,7 +67,49 @@ public class Tests
 
         Assert.That(changedCapacity == 8);
     }
+    [Test]
+    public void existsRemovedItem()
+    {
+        Basket basket = new Basket();
+        Item itemInList = new Item("BaBagel", 2, "RMU", "MaybeSpicy");
+        Item itemNotInList = new Item("BaBagel", 3, "RMU", "MaybeSpicy");
+        basket.AddItem(itemInList);
 
-    
+
+        string outputString = basket.RemoveItem(itemNotInList);
+        string expectedString = "Item does not exist";
+
+        Assert.That(outputString, Is.EqualTo(expectedString));
+
+    }
+    [Test]
+    public void totalCostBasket()
+    {
+        Basket basket = new Basket();
+        Item item1 = new Item("BaBagel", 2, "RMU", "MaybeSpicy");
+        Item item2 = new Item("BaBagel", 8, "RMU", "MaybeSpicy");
+
+        basket.AddItem(item2);
+        basket.AddItem(item1);
+
+        double actualTotal = basket.Total;
+        double expectedTotal = 10;
+
+        Assert.That(actualTotal, Is.EqualTo(expectedTotal));
+
+    }
+    [Test]
+    public void checkItemPrice()
+    {
+        Basket basket = new Basket();
+        Item item1 = new Item("BaBagel", 9.99, "RMU", "MaybeSpicy");
+
+        double actualPrice = basket.itemPrice(item1);
+        double expectedPrice = 9.99;
+
+        Assert.That(actualPrice, Is.EqualTo(expectedPrice));
+    }
+
+
 
 }

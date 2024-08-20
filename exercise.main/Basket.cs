@@ -19,16 +19,25 @@ namespace exercise.main
             return false;
         }
 
-        public bool RemoveItem(Item item)
+        public string RemoveItem(Item item)
         {
+            if (!_items.Contains(item))
+                { 
+                return "Item does not exist"; 
+            }
+           
             _items.Remove(item);
-            return true;
+            return "Item removed";
         }
         public int CheckCapacity() {
             return _items.Count;
         }
         public double Total => _items.Sum(i => i.price);
         public int MaxCapacity { get; set; } = 5;
+        public double itemPrice (Item item)
+        {
+            return item.price;
+        }
 
         public int ChangeMaxCapacity(int MaxCapacity) {
 
@@ -36,5 +45,6 @@ namespace exercise.main
             return MaxCapacity;
 
         }
+
     }
 }

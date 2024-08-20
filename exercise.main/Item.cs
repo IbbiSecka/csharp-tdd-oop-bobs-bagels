@@ -12,6 +12,7 @@ namespace exercise.main
         public double price { get; set; }
         public string sku { get; set; }
         public string variant { get; set; }
+
         public Item(string name, double price, string sku, string variant) {
             this.name = name;
             this.price = price;
