@@ -31,7 +31,7 @@ public class Tests
         Assert.That(addedItem);
         //Checks if item is removed
         string removedItem = bagel.RemoveItem(item99);
-        Assert.That(removedItem == "Item reomved");
+        Assert.That(removedItem == "Item removed");
     }
     [Test]
     public void checkCapacity()
@@ -99,7 +99,7 @@ public class Tests
 
     }
     [Test]
-    public void checkItemPrice()
+    public void checkItemPrice() //Checks also for filling price
     {
         Basket basket = new Basket();
         Item item1 = new Item("BaBagel", 9.99, "RMU", "MaybeSpicy");
@@ -108,6 +108,23 @@ public class Tests
         double expectedPrice = 9.99;
 
         Assert.That(actualPrice, Is.EqualTo(expectedPrice));
+    }
+
+    [Test]
+    public void chooseFilling()
+    {
+        Dictionary<Item, Filling> basket = new Dictionary<Item, Filling>();
+        Item bagel = new Item("BaBagel", 9.99, "RMU", "MaybeSpicy");
+        Filling filling = new Filling("Cheese",0.99,bagel);
+
+        
+        Assert.That(basket.Count, Is.EqualTo(1));
+        
+
+        
+
+
+
     }
 
 

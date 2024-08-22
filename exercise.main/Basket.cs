@@ -41,8 +41,15 @@ namespace exercise.main
 
         public int ChangeMaxCapacity(int MaxCapacity) {
 
-            MaxCapacity = 8;
-            return MaxCapacity;
+
+            return MaxCapacity = 8;
+
+        }
+        public Dictionary<Item,Filling> AddFilling(Item item, Filling filling)
+        {
+            Dictionary<Item,Filling> BagelWithFilling = new Dictionary<Item,Filling>();
+            BagelWithFilling.Add(item, filling);
+            return BagelWithFilling;
 
         }
 
